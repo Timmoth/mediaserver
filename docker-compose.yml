@@ -41,7 +41,7 @@ services:
     volumes:
       - /var/media/sonarr/data:/config
       - /var/media/series:/tv #optional
-      - /var/media/downloads:/downloads #optional
+      - /var/media/qbittorrent/downloads:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     volumes:
       - /var/media/radarr/data:/config
       - /var/media/movies:/movies #optional
-      - /var/media/downloads:/downloads #optional
+      - /var/media/qbittorrent/downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
