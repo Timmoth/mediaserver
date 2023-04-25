@@ -6,7 +6,8 @@ Requires=docker.service
 After=docker.service
 
 [Service]
-Restart=always
+Type=oneshot
+RemainAfterExit=yes
 WorkingDirectory=/var/media
 ExecStart=/usr/bin/env /usr/bin/docker-compose -f /var/media/docker-compose.yml up -d
 ExecStop=/usr/bin/env /usr/bin/docker-compose -f /var/media/docker-compose.yml stop
