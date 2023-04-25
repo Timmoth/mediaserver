@@ -1,0 +1,20 @@
+# /etc/systemd/system/mediaserver.service
+
+[Unit]
+Description=Mediaserver Service
+Requires=docker.service
+After=docker.service
+StartLimitIntervalSec=60
+
+[Service]
+User=media
+Group=media
+WorkingDirectory=/var/media
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop=/usr/local/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
